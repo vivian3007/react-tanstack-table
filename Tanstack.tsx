@@ -81,20 +81,20 @@ export default function OrdersTable() {
         manualPagination: true,
     });
 
-    if (isLoading) return <p>Laden...</p>;
+    if (isLoading) return <CircularProgress />;
 
     return (
         <Box sx={{ p: 4 }}>
-            <Typography variant="h5" component="h2" sx={{ mb: 4, fontWeight: 'bold' }}>
+            <Typography variant="h5" sx={{ mb: 4, fontWeight: 'bold' }}>
                 Bestellingen
             </Typography>
 
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
-                        {table.getHeaderGroups().map((hg) => (
-                            <TableRow key={hg.id}>
-                                {hg.headers.map((header) => (
+                        {table.getHeaderGroups().map((headerGroup) => (
+                            <TableRow key={headerGroup.id}>
+                                {headerGroup.headers.map((header) => (
                                     <TableCell key={header.id} sx={{ fontWeight: 'bold' }}>
                                         {flexRender(header.column.columnDef.header, header.getContext())}
                                     </TableCell>
@@ -121,7 +121,7 @@ export default function OrdersTable() {
             </TableContainer>
 
             {selectedOrder && (
-                <Paper sx={{ mt: 4, p: 3, bgcolor: 'grey.50' }}>
+                <Paper sx={{ mt: 4, p: 3 }}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
                         Geselecteerde bestelling:
                     </Typography>

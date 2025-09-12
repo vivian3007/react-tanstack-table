@@ -78,7 +78,7 @@ export default function OrdersTable() {
         getCoreRowModel: getCoreRowModel(),
         getSortedRowModel: getSortedRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
-        manualPagination: true, // server-side mogelijk
+        manualPagination: true,
     });
 
     if (isLoading) return <p>Laden...</p>;
